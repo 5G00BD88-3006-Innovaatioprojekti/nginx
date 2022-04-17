@@ -14,4 +14,4 @@ jobs:
       - name: Build and start nginx container
         run: |
           docker build -t nginx -f nginx.Dockerfile .
-          docker run -d -p 80:80 nginx
+          docker run -d --network=sports_location_tracker_stg -p 80:80 nginx
