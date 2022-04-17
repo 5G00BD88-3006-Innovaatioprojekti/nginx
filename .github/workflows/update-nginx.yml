@@ -14,7 +14,7 @@ jobs:
       - name: Build and start nginx container
         run: |
           docker build -t nginx_own -f nginx.Dockerfile .
-          docker inspect nginx > /dev/null || true stop nginx || docker rm nginx
+          docker ps -aq --filter "name=nginx" | grep -q . && docker stop nginx && docker rm -f nginx
           docker run -d \
             --name=nginx \
             --restart=always \
