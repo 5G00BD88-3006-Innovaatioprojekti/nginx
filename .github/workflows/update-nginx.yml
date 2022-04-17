@@ -14,10 +14,9 @@ jobs:
       - name: Build and start nginx container
         run: |
           docker build -t nginx_own -f nginx.Dockerfile .
-          docker stop nginx
-          docker rm nginx
+          docker inspect nginx > /dev/null || true stop nginx || docker rm nginx
           docker run -d \
-            --name=nginx
+            --name=nginx \
             --restart=always \
             --network=sports-location-tracker_stg \
             -p 80:80 \
