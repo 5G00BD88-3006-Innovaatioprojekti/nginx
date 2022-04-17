@@ -1,0 +1,17 @@
+name: Update nginx
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-repo:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout this repo
+        uses: actions/checkout@v3
+      - name: Build and start nginx container
+        run: |
+          docker build -t nginx -f nginx.Dockerfile .
+          docker run -d -p 80:80 nginx
