@@ -18,7 +18,7 @@ jobs:
           docker run -d \
             --name=nginx \
             --restart=always \
-            --network=sports-location-tracker_stg \
             -p 80:80 \
             nginx_own:latest
+          docker network connect sports-location-tracker_stg nginx
           docker network connect datavarasto_stg nginx
