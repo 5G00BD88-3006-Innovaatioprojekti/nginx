@@ -22,3 +22,4 @@ jobs:
             nginx_own:latest
           docker network connect sports-location-tracker_stg nginx
           docker network connect datavarasto_stg nginx
+          docker network connect datavarasto_prd nginx
