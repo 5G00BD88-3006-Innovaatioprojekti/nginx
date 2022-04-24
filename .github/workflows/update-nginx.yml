@@ -20,6 +20,7 @@ jobs:
             --restart=always \
             -p 80:80 \
             nginx_own:latest
-          docker network connect sports-location-tracker_stg nginx
+          docker network connect slt-stg_stg nginx
+          docker network connect slt-prd_prd nginx
           docker network connect datavarasto-stg_stg nginx
           docker network connect datavarasto-prd_prd nginx
