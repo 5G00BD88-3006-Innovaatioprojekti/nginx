@@ -21,5 +21,4 @@ jobs:
             -p 80:80 \
             nginx_own:latest
           docker network connect sports-location-tracker_stg nginx
-          docker network connect datavarasto_stg nginx
-          docker network connect datavarasto_prd nginx
+          docker network connect datavarasto-stg_stg nginx
